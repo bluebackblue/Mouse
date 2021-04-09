@@ -3,7 +3,7 @@
 /**
  * Copyright (c) blueback
  * Released under the MIT License
- * @brief ƒfƒoƒbƒOƒc[ƒ‹B
+ * @brief ãƒ‡ãƒãƒƒã‚°ãƒ„ãƒ¼ãƒ«ã€‚
 */
 
 
