@@ -7,13 +7,14 @@ MIT License
 * https://github.com/bluebackblue/Mouse/blob/main/LICENSE
 
 ## 外部依存 / 使用ライセンス等
+* https://github.com/bluebackblue/UnityPlayerLoop
 
 ## 動作確認
 Unity 2020.2.0b14
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.1
+* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.2
 ### 開発
 * https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM
 
