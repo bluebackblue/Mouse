@@ -85,6 +85,7 @@ public class Setting
 				"# " + AUTHOR_NAME + "." + PACKAGE_NAME,
 				"マウス操作",
 				"* マウスの位置、ボタン、ホイールの取得",
+				"* FixedUpdateでのダウン、アップ、連射の取得"
 			};
 		},
 

@@ -11,30 +11,18 @@
 */
 namespace BlueBack.Mouse
 {
-	/** StatusWheel
+	/** StatusCursor
 	*/
-	public struct StatusWheel
+	public struct StatusCursor
 	{
-		/** 累積。
-		*/
-		public UnityEngine.Vector2 device_accumulation;
-
 		/** 位置。
 		*/
 		public UnityEngine.Vector2 pos;
-
-		/** 更新。
-		*/
-		public void Update()
-		{
-			this.pos = this.device_accumulation;
-		}
 
 		/** リセット。
 		*/
 		public void Reset()
 		{
-			this.device_accumulation = new UnityEngine.Vector2(0.0f,0.0f);
 			this.pos = new UnityEngine.Vector2(0.0f,0.0f);
 		}
 
@@ -42,7 +30,6 @@ namespace BlueBack.Mouse
 		*/
 		public void Init()
 		{
-			this.device_accumulation = new UnityEngine.Vector2(0.0f,0.0f);
 			this.pos = new UnityEngine.Vector2(0.0f,0.0f);
 		}
 	}

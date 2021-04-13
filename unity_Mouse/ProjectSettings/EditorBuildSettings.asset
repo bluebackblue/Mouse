@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Samples/Mouse/000/Exsample/Scene.unity
+    guid: db36cb895d30d36468ff3d18a5118190
   m_configObjects: {}

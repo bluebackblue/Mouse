@@ -17,11 +17,11 @@ namespace BlueBack.Mouse
 	{
 		/** カーソル。
 		*/
-		public StatusPosition cursor;
+		public StatusCursor cursor;
 
-		/** マウスホイール。
+		/** ホイール。
 		*/
-		public StatusPosition wheel;
+		public StatusWheel wheel;
 
 		/** 左ボタン。
 		*/
@@ -82,8 +82,13 @@ namespace BlueBack.Mouse
 		*/
 		public void Reset()
 		{
+			//cursor
 			this.cursor.Reset();
+
+			//wheel
 			this.wheel.Reset();
+
+			//button
 			this.left.Reset();
 			this.right.Reset();
 			this.center.Reset();
@@ -93,27 +98,38 @@ namespace BlueBack.Mouse
 		*/
 		public void DeviceUpdate()
 		{
-			this.cursor.device = new UnityEngine.Vector2(UnityEngine.Input.mousePosition.x / UnityEngine.Screen.width,1.0f - UnityEngine.Input.mousePosition.y / UnityEngine.Screen.height);
-			this.wheel.device += UnityEngine.Input.mouseScrollDelta;
-			this.left.device |= UnityEngine.Input.GetMouseButton(0);
-			this.right.device |= UnityEngine.Input.GetMouseButton(1);
-			this.center.device |= UnityEngine.Input.GetMouseButton(2);
+			//cursor
+			this.cursor.pos = new UnityEngine.Vector2(UnityEngine.Input.mousePosition.x / UnityEngine.Screen.width,1.0f - UnityEngine.Input.mousePosition.y / UnityEngine.Screen.height);
+
+			//pos
+			this.wheel.device_accumulation += UnityEngine.Input.mouseScrollDelta;
+
+			//最新の状態。
+			this.left.device = UnityEngine.Input.GetMouseButton(0);
+			this.right.device = UnityEngine.Input.GetMouseButton(1);
+			this.center.device = UnityEngine.Input.GetMouseButton(2);
+
+			//累積。
+			this.left.device_accumulation |= this.left.device;
+			this.right.device_accumulation |= this.right.device;
+			this.center.device_accumulation |= this.center.device;
 		}
 
 		/** StatusUpdate
 		*/
 		public void StatusUpdate()
 		{
-			this.cursor.Update();
-			this.wheel.Update();
+			//button
 			this.left.Update();
 			this.right.Update();
 			this.center.Update();
+			this.left.device_accumulation = this.left.device;
+			this.right.device_accumulation = this.right.device;
+			this.center.device_accumulation = this.center.device;
 
-			this.wheel.device = new UnityEngine.Vector2(0.0f,0.0f);
-			this.left.device = false;
-			this.right.device = false;
-			this.center.device = false;
+			//wheel
+			this.wheel.Update();
+			this.wheel.device_accumulation = new UnityEngine.Vector2(0.0f,0.0f);
 		}
 	}
 }
