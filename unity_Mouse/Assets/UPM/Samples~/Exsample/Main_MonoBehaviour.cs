@@ -4,6 +4,7 @@
 #define MOUSE_FIXEDUPDATE
 #define MOUSE_MANUAL
 
+
 /** Samples.Mouse.Exsample
 */
 namespace Samples.Mouse.Exsample

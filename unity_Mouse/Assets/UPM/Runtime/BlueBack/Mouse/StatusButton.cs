@@ -36,16 +36,15 @@ namespace BlueBack.Mouse
 		public bool up;
 
 		/** rapid
+
+			rapid_time				: 次回ラピッド時刻。
+			rapid_time_max_first	: 初回のラピッド間隔。
+			rapid_time_max			: 二回目からのラピッド間隔。
+
 		*/
 		public bool rapid;
 		public float rapid_time;
-
-		/** 初回のラピッド間隔。
-		*/
 		public float rapid_time_max_first;
-
-		/** 二回目からのラピッド間隔。
-		*/
 		public float rapid_time_max;
 
 		/** 更新。
@@ -114,7 +113,6 @@ namespace BlueBack.Mouse
 			this.up = false;
 			this.rapid = false;
 			this.rapid_time  = 0.0f;
-
 			this.rapid_time_max_first = a_param.rapid_time_max_first;
 			this.rapid_time_max = a_param.rapid_time_max;
 		}

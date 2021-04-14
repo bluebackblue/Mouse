@@ -15,7 +15,7 @@ Unity 2020.2.0b14
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.4
+* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.5
 ### 開発
 * https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM
 
@@ -32,5 +32,41 @@ Gitクライアントがインストールされている必要がある。
 
 ## 例
 ```
+/** Update用。
+*/
+private BlueBack.Mouse.Mouse mouse;
+
+/** FixedUpdate用。
+*/
+private BlueBack.Mouse.Mouse mouse_fixedupdate;
+
+/** Start
+*/
+private void Start()
+{
+	//Update用。
+	this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,new BlueBack.Mouse.Param());
+
+	//FixedUpdate用。
+	this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,new BlueBack.Mouse.Param());
+}
+
+/** Update
+*/
+private void Update()
+{
+	if(this.mouse.left.down == true){
+		UnityEngine.Debug.Log("Update.Left.Down");
+	}
+}
+
+/** FixedUpdate
+*/
+private void FixedUpdate()
+{
+	if(this.mouse_fixedupdate.left.down == true){
+		UnityEngine.Debug.Log("FixedUpdate.Left.Down");
+	}
+}
 ```
 
