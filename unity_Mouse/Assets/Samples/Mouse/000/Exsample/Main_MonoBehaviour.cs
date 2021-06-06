@@ -57,7 +57,7 @@ namespace Samples.Mouse.Exsample
 		{
 			//mouse_update
 			#if(MOUSE_UPDATE)
-			this.mouse_update = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,new BlueBack.Mouse.Param());
+			this.mouse_update = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,new BlueBack.Mouse.Param(),new BlueBack.Mouse.UIM.Engine());
 			this.text_update = UnityEngine.GameObject.Find("Text_Update").GetComponent<UnityEngine.UI.Text>();
 			this.value_update = 0;
 			this.value_wheel_update = new UnityEngine.Vector2(0.0f,0.0f);
@@ -65,7 +65,7 @@ namespace Samples.Mouse.Exsample
 
 			//mouse_fixedupdate
 			#if(MOUSE_FIXEDUPDATE)
-			this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,new BlueBack.Mouse.Param());
+			this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,new BlueBack.Mouse.Param(),new BlueBack.Mouse.UIM.Engine());
 			this.text_fixedupdate = UnityEngine.GameObject.Find("Text_FixedUpdate").GetComponent<UnityEngine.UI.Text>();
 			this.value_fixedupdate = 0;
 			this.value_wheel_fixedupdate = new UnityEngine.Vector2(0.0f,0.0f);
@@ -73,7 +73,7 @@ namespace Samples.Mouse.Exsample
 
 			//マニュアル呼び出し。
 			#if(MOUSE_MANUAL)
-			this.mouse_manual = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Manual,new BlueBack.Mouse.Param());
+			this.mouse_manual = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Manual,new BlueBack.Mouse.Param(),new BlueBack.Mouse.UIM.Engine());
 			this.text_manual = UnityEngine.GameObject.Find("Text_Manual").GetComponent<UnityEngine.UI.Text>();
 			this.value_manual = 0;
 			this.value_wheel_manual = new UnityEngine.Vector2(0.0f,0.0f);

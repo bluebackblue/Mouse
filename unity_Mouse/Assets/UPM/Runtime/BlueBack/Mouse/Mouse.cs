@@ -15,6 +15,10 @@ namespace BlueBack.Mouse
 	*/
 	public class Mouse : System.IDisposable
 	{
+		/** engine
+		*/
+		public Engine_Base engine;
+
 		/** カーソル。
 		*/
 		public StatusCursor cursor;
@@ -37,30 +41,37 @@ namespace BlueBack.Mouse
 
 		/** constructor
 		*/
-		public Mouse(Mode a_mode,Param a_param)
+		public Mouse(Mode a_mode,Param a_param,Engine_Base a_engine)
 		{
-			UnityEngine.LowLevel.PlayerLoopSystem t_playerloopsystem = BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetCurrentPlayerLoop();
+			//PlayerLoopSystem
+			{
+				UnityEngine.LowLevel.PlayerLoopSystem t_playerloopsystem = BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetCurrentPlayerLoop();
 
-			//StatusUpdate
-			switch(a_mode){
-			case Mode.FixedUpdate:
-				{
-					BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.FixedUpdate),typeof(PlayerLoopType.Update),this.StatusUpdate);
-				}break;
-			case Mode.Update:
-				{
-					BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Update),this.StatusUpdate);
-				}break;
-			case Mode.Manual:
-				{
-				}break;
+				//StatusUpdate
+				switch(a_mode){
+				case Mode.FixedUpdate:
+					{
+						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.FixedUpdate),typeof(PlayerLoopType.Update),this.StatusUpdate);
+					}break;
+				case Mode.Update:
+					{
+						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Update),this.StatusUpdate);
+					}break;
+				case Mode.Manual:
+					{
+					}break;
+				}
+
+				//DeviceUpdate
+				BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Update),this.DeviceUpdate);
+
+				//SetPlayerLoop
+				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
 			}
 
-			//DeviceUpdate
-			BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Update),this.DeviceUpdate);
-
-			//SetPlayerLoop
-			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
+			//engine
+			this.engine = a_engine;
+			this.engine.Create();
 
 			//Init
 			this.cursor.Init();
@@ -74,6 +85,10 @@ namespace BlueBack.Mouse
 		*/
 		public void Dispose()
 		{
+			//engine
+			this.engine.Delete();
+			
+			//PlayerLoopSystem
 			UnityEngine.LowLevel.PlayerLoopSystem t_playerloopsystem = BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetCurrentPlayerLoop();
 			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Update));
 			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
@@ -100,15 +115,15 @@ namespace BlueBack.Mouse
 		public void DeviceUpdate()
 		{
 			//cursor
-			this.cursor.pos = new UnityEngine.Vector2(UnityEngine.Input.mousePosition.x / UnityEngine.Screen.width,1.0f - UnityEngine.Input.mousePosition.y / UnityEngine.Screen.height);
+			this.cursor.pos = this.engine.GetCursorPos();
 
 			//pos
-			this.wheel.device_accumulation += UnityEngine.Input.mouseScrollDelta;
+			this.wheel.device_accumulation += this.engine.GetWheelDelta();
 
 			//最新の状態。
-			this.left.device = UnityEngine.Input.GetMouseButton(0);
-			this.right.device = UnityEngine.Input.GetMouseButton(1);
-			this.center.device = UnityEngine.Input.GetMouseButton(2);
+			this.left.device = this.engine.GetLeftButton();
+			this.right.device = this.engine.GetRightButton();
+			this.center.device =this.engine.GetCenterButton();
 
 			//累積。
 			this.left.device_accumulation |= this.left.device;
