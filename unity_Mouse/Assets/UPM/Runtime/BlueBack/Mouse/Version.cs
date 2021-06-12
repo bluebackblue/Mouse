@@ -17,7 +17,14 @@ namespace BlueBack.Mouse
 	{
 		/** version
 		*/
-		public const string packageversion = "0.0.6";
+		public const string packageversion = "0.0.7";
+
+		/** GetPackageVersion
+		*/
+		public static string GetPackageVersion()
+		{
+			return packageversion;
+		}
 	}
 }
 
