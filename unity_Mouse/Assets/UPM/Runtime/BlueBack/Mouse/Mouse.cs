@@ -123,7 +123,7 @@ namespace BlueBack.Mouse
 			//最新の状態。
 			this.left.device = this.engine.GetLeftButton();
 			this.right.device = this.engine.GetRightButton();
-			this.center.device =this.engine.GetCenterButton();
+			this.center.device = this.engine.GetCenterButton();
 
 			//累積。
 			this.left.device_accumulation |= this.left.device;
