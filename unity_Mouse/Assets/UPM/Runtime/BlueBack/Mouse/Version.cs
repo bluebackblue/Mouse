@@ -3,7 +3,7 @@
 /**
  * Copyright (c) blueback
  * Released under the MIT License
- * @brief バージョン。
+ * @brief バージョン。自動生成。
 */
 
 
@@ -15,9 +15,13 @@ namespace BlueBack.Mouse
 	*/
 	public class Version
 	{
-		/** version
+		/** packagename
 		*/
-		public const string packageversion = "0.0.8";
+		public const string packagename = "Mouse";
+
+		/** packageversion
+		*/
+		public const string packageversion = "0.0.9";
 
 		/** GetPackageVersion
 		*/
