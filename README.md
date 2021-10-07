@@ -19,7 +19,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.11
+* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.10
 ### 開発
 * https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM
 
