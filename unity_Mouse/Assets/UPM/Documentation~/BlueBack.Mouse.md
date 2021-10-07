@@ -8,9 +8,10 @@ MIT License
 * https://github.com/bluebackblue/Mouse/blob/main/LICENSE
 
 ## 外部依存 / 使用ライセンス等
-* https://github.com/bluebackblue/UnityPlayerLoop
+### ランタイム
+### エディター
 * https://github.com/bluebackblue/Mouse
-### サンプルのみ
+### サンプル
 * https://github.com/bluebackblue/Mouse
 
 ## 動作確認
@@ -18,7 +19,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.10
+* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.11
 ### 開発
 * https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM
 
