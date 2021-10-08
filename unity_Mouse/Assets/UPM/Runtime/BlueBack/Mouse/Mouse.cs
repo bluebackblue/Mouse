@@ -13,7 +13,7 @@ namespace BlueBack.Mouse
 {
 	/** Mouse
 	*/
-	public class Mouse : System.IDisposable
+	public sealed class Mouse : System.IDisposable
 	{
 		/** engine
 		*/
