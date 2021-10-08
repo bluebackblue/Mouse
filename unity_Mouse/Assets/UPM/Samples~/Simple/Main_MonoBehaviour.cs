@@ -21,10 +21,10 @@ namespace Samples.Mouse.Simple
 		private void Start()
 		{
 			//Update用。
-			this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,new BlueBack.Mouse.Param(),new BlueBack.Mouse.UIM.Engine());
+			this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault(),new BlueBack.Mouse.UIM.Engine());
 
 			//FixedUpdate用。
-			this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,new BlueBack.Mouse.Param(),new BlueBack.Mouse.UIM.Engine());
+			this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault(),new BlueBack.Mouse.UIM.Engine());
 		}
 
 		/** Update

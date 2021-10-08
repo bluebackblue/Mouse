@@ -15,7 +15,7 @@ namespace BlueBack.Mouse.Editor
 	/** UpdatePackage
 	*/
 	#if(!DEF_USER_BLUEBACK_MOUSE)
-	public class UpdatePackage
+	public static class UpdatePackage
 	{
 		/** MenuItem_BlueBack_Mouse_UpdatePackage
 		*/

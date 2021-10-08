@@ -23,23 +23,23 @@ namespace BlueBack.Mouse
 		*/
 		void Delete();
 
-		/** GetCursorPos
+		/** [BlueBack.Mouse.Engine_Base]GetCursorPos
 		*/
 		UnityEngine.Vector2 GetCursorPos();
 
-		/** GetLeftButton
+		/** [BlueBack.Mouse.Engine_Base]GetLeftButton
 		*/
 		bool GetLeftButton();
 
-		/** GetRightButton
+		/** [BlueBack.Mouse.Engine_Base]GetRightButton
 		*/
 		bool GetRightButton();
 
-		/** GetCenterButton
+		/** [BlueBack.Mouse.Engine_Base]GetCenterButton
 		*/
 		bool GetCenterButton();
 
-		/** GetWheelDelta
+		/** [BlueBack.Mouse.Engine_Base]GetWheelDelta
 		*/
 		UnityEngine.Vector2 GetWheelDelta();
 	}

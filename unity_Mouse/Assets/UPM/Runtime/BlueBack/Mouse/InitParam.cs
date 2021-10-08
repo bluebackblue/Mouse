@@ -11,9 +11,9 @@
 */
 namespace BlueBack.Mouse
 {
-	/** Param
+	/** InitParam
 	*/
-	public class Param
+	public struct InitParam
 	{
 		/** 初回のラピッド間隔。
 		*/
@@ -23,15 +23,14 @@ namespace BlueBack.Mouse
 		*/
 		public float rapid_time_max;
 
-		/** constructor
+		/** CreateDefault
 		*/
-		public Param()
+		public static InitParam CreateDefault()
 		{
-			//rapid_time_max_first
-			this.rapid_time_max_first = 0.5f;
-
-			//rapid_time_max
-			this.rapid_time_max = 0.1f;
+			return new InitParam(){
+				rapid_time_max_first = 0.5f,
+				rapid_time_max = 0.1f,
+			};
 		}
 	}
 }

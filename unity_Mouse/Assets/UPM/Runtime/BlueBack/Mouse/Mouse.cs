@@ -41,7 +41,7 @@ namespace BlueBack.Mouse
 
 		/** constructor
 		*/
-		public Mouse(Mode a_mode,Param a_param,Engine_Base a_engine)
+		public Mouse(Mode a_mode,in InitParam a_initparam,Engine_Base a_engine)
 		{
 			//PlayerLoopSystem
 			{
@@ -67,6 +67,9 @@ namespace BlueBack.Mouse
 
 				//SetPlayerLoop
 				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
+
+				//SetDefaultPlayerLoopOnUnityDestroy
+				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetDefaultPlayerLoopOnUnityDestroy();
 			}
 
 			//engine
@@ -76,9 +79,9 @@ namespace BlueBack.Mouse
 			//Init
 			this.cursor.Init();
 			this.wheel.Init();
-			this.left.Init(a_param);
-			this.right.Init(a_param);
-			this.center.Init(a_param);
+			this.left.Init(in a_initparam);
+			this.right.Init(in a_initparam);
+			this.center.Init(in a_initparam);
 		}
 
 		/** [IDisposable]Dispose。

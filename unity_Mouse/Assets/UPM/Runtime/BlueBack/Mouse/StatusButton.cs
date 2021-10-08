@@ -104,7 +104,7 @@ namespace BlueBack.Mouse
 
 		/** 初期化。
 		*/
-		public void Init(Param a_param)
+		public void Init(in InitParam a_initparam)
 		{
 			this.device = false;
 			this.device_accumulation = false;
@@ -113,8 +113,8 @@ namespace BlueBack.Mouse
 			this.up = false;
 			this.rapid = false;
 			this.rapid_time  = 0.0f;
-			this.rapid_time_max_first = a_param.rapid_time_max_first;
-			this.rapid_time_max = a_param.rapid_time_max;
+			this.rapid_time_max_first = a_initparam.rapid_time_max_first;
+			this.rapid_time_max = a_initparam.rapid_time_max;
 		}
 	}
 }
