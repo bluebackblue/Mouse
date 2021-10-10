@@ -5,23 +5,23 @@
 
 ## ライセンス
 MIT License
-* https://github.com/bluebackblue/Mouse/blob/main/LICENSE
+* https://github.com/bluebackblue/UpmMouse/blob/main/LICENSE
 
 ## 依存 / 使用ライセンス等
 ### ランタイム
 ### エディター
-* https://github.com/bluebackblue/Mouse
+* https://github.com/bluebackblue/UpmMouse
 ### サンプル
-* https://github.com/bluebackblue/Mouse
+* https://github.com/bluebackblue/UpmMouse
 
 ## 動作確認
 Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#0.0.13
+* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.14
 ### 開発
-* https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM
+* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM
 
 ## Unityへの追加方法
 * Unity起動
