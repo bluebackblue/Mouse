@@ -28,9 +28,9 @@ namespace BlueBack.Mouse.Editor
 				DebugTool.EditorLogError("GetLastReleaseNameFromGitHub : connect error");
 				#endif
 			}else if(t_version.Length <= 0){
-				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM");
+				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Mouse.git?path=BlueBackMouse/Assets/UPM");
 			}else{
-				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Mouse.git?path=unity_Mouse/Assets/UPM#" + t_version);
+				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Mouse.git?path=BlueBackMouse/Assets/UPM#" + t_version);
 			}
 		}
 
