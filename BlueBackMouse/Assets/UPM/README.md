@@ -10,7 +10,6 @@ MIT License
 ## 依存 / 使用ライセンス等
 ### ランタイム
 ### エディター
-* https://github.com/bluebackblue/UpmMouse
 ### サンプル
 * https://github.com/bluebackblue/UpmMouse
 
@@ -19,7 +18,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.14
+* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.15
 ### 開発
 * https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM
 
@@ -33,44 +32,4 @@ Unity 2021.1.11f1
 Gitクライアントがインストールされている必要がある。
 * https://docs.unity3d.com/ja/current/Manual/upm-git.html
 * https://git-scm.com/
-
-## 例
-```
-/** Update用。
-*/
-private BlueBack.Mouse.Mouse mouse;
-
-/** FixedUpdate用。
-*/
-private BlueBack.Mouse.Mouse mouse_fixedupdate;
-
-/** Start
-*/
-private void Start()
-{
-	//Update用。
-	this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault());
-
-	//FixedUpdate用。
-	this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault());
-}
-
-/** Update
-*/
-private void Update()
-{
-	if(this.mouse.left.down == true){
-		UnityEngine.Debug.Log("Update.Left.Down");
-	}
-}
-
-/** FixedUpdate
-*/
-private void FixedUpdate()
-{
-	if(this.mouse_fixedupdate.left.down == true){
-		UnityEngine.Debug.Log("FixedUpdate.Left.Down");
-	}
-}
-```
 
