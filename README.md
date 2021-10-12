@@ -10,6 +10,7 @@ MIT License
 ## 依存 / 使用ライセンス等
 ### ランタイム
 ### エディター
+* https://github.com/bluebackblue/UpmMouse
 ### サンプル
 * https://github.com/bluebackblue/UpmMouse
 
@@ -18,7 +19,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.15
+* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.16
 ### 開発
 * https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM
 
@@ -32,4 +33,5 @@ Unity 2021.1.11f1
 Gitクライアントがインストールされている必要がある。
 * https://docs.unity3d.com/ja/current/Manual/upm-git.html
 * https://git-scm.com/
+
 

@@ -8,10 +8,10 @@
     "discription_detal":[
         "マウス操作",
         "* マウスの位置、ボタン、ホイールの取得",
-        "* FixedUpdateでのダウン、アップ、連射の取得",
+        "* FixedUpdateでのダウン、アップ、連射の取得"
     ],
     "keyword":[
-        "input","mouse",
+        "input","mouse"
     ],
     "changelog":[
         "# Changelog",
@@ -19,7 +19,7 @@
         "## [0.0.0] - 2021-04-09",
         "### Changes",
         "- Init",
-        "",
+        ""
     ],
     "root_readmemd_path":"../../README.md",
     "need_unity_version":"2020.1",
@@ -28,15 +28,21 @@
         ],
         "reference_list":[
             {
+                "use":"use",
                 "package_fullname":"BlueBack.UnityPlayerLoop",
-                "url":"https://github.com/bluebackblue/UpmUnityPlayerLoop",
-            },
+                "url":"https://github.com/bluebackblue/UpmUnityPlayerLoop"
+            }
         ]
     },
     "asmdef_editor":{
         "define_list":[
         ],
         "reference_list":[
+            {
+                "use":"use",
+                "package_fullname":"BlueBack.Mouse",
+                "url":"https://github.com/bluebackblue/UpmMouse"
+            }
         ]
     },
     "asmdef_sample":{
@@ -44,13 +50,10 @@
         ],
         "reference_list":[
             {
+                "use":"use",
                 "package_fullname":"BlueBack.Mouse",
-                "url":"https://github.com/bluebackblue/UpmMouse",
-            },
-            {
-                "package_fullname":"BlueBack.Mouse.Editor",
-                "url":"https://github.com/bluebackblue/UpmMouse",
-            },
+                "url":"https://github.com/bluebackblue/UpmMouse"
+            }
         ]
-    },
+    }
 }
