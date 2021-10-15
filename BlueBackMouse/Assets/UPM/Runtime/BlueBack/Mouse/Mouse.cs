@@ -51,11 +51,11 @@ namespace BlueBack.Mouse
 				switch(a_mode){
 				case Mode.FixedUpdate:
 					{
-						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.FixedUpdate),typeof(PlayerLoopType.Update),this.StatusUpdate);
+						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.FixedUpdate),typeof(PlayerLoopType.Status),this.StatusUpdate);
 					}break;
 				case Mode.Update:
 					{
-						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Update),this.StatusUpdate);
+						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Status),this.StatusUpdate);
 					}break;
 				case Mode.Manual:
 					{
@@ -63,7 +63,7 @@ namespace BlueBack.Mouse
 				}
 
 				//DeviceUpdate
-				BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Update),this.DeviceUpdate);
+				BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Device),this.DeviceUpdate);
 
 				//SetPlayerLoop
 				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
@@ -77,11 +77,13 @@ namespace BlueBack.Mouse
 			this.engine.Create();
 
 			//Init
-			this.cursor.Init();
-			this.wheel.Init();
-			this.left.Init(in a_initparam);
-			this.right.Init(in a_initparam);
-			this.center.Init(in a_initparam);
+			{
+				this.cursor.Init();
+				this.wheel.Init();
+				this.left.Init(in a_initparam);
+				this.right.Init(in a_initparam);
+				this.center.Init(in a_initparam);
+			}
 		}
 
 		/** [IDisposable]Dispose。
@@ -93,7 +95,8 @@ namespace BlueBack.Mouse
 			
 			//PlayerLoopSystem
 			UnityEngine.LowLevel.PlayerLoopSystem t_playerloopsystem = BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetCurrentPlayerLoop();
-			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Update));
+			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Status));
+			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Device));
 			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
 		}
 
@@ -115,7 +118,7 @@ namespace BlueBack.Mouse
 
 		/** DeviceUpdate
 		*/
-		public void DeviceUpdate()
+		private void DeviceUpdate()
 		{
 			//cursor
 			this.cursor.pos = this.engine.GetCursorPos();
