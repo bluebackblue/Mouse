@@ -20,21 +20,25 @@ namespace BlueBack.Mouse.Editor
 		*/
 		public const string packageversion = Version.packageversion;
 
-		/** MenuItem_BlueBack_Mouse_UpdatePackage
+		/** MenuItem_UpdatePackage_Develop
 		*/
 		#if(!DEF_USER_BLUEBACK_MOUSE)
-		[UnityEditor.MenuItem("BlueBack/Mouse/UpdatePackage " + Version.packageversion)]
+		[UnityEditor.MenuItem("BlueBack/Mouse/UpdatePackage/Develop")]
 		#endif
-		public static void MenuItem_BlueBack_Mouse_UpdatePackage()
+		public static void MenuItem_UpdatePackage_Develop()
+		{
+			UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM");
+		}
+
+		/** MenuItem_UpdatePackage_Last
+		*/
+		#if(!DEF_USER_BLUEBACK_MOUSE)
+		[UnityEditor.MenuItem("BlueBack/Mouse/UpdatePackage/Last " + Version.packageversion)]
+		#endif
+		public static void MenuItem_UpdatePackage_Last()
 		{
 			string t_version = GetLastReleaseNameFromGitHub();
-			if(t_version == null){
-				#if(UNITY_EDITOR)
-				DebugTool.EditorLogError("GetLastReleaseNameFromGitHub : connect error");
-				#endif
-			}else if(t_version.Length <= 0){
-				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM");
-			}else{
+			if(t_version != null){
 				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#" + t_version);
 			}
 		}

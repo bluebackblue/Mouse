@@ -1,0 +1,49 @@
+
+
+/** Samples.Mouse.InputManager
+*/
+namespace Samples.Mouse.InputManager
+{
+	/** Main_MonoBehaviour
+	*/
+	public class Main_MonoBehaviour : UnityEngine.MonoBehaviour
+	{
+		/** Update用。
+		*/
+		private BlueBack.Mouse.Mouse mouse;
+
+		/** FixedUpdate用。
+		*/
+		private BlueBack.Mouse.Mouse mouse_fixedupdate;
+
+		/** Start
+		*/
+		private void Start()
+		{
+			//Update用。
+			this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault(),new BlueBack.Mouse.UIM.Engine());
+
+			//FixedUpdate用。
+			this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault(),new BlueBack.Mouse.UIM.Engine());
+		}
+
+		/** Update
+		*/
+		private void Update()
+		{
+			if(this.mouse.left.down == true){
+				UnityEngine.Debug.Log("Update.Left.Down");
+			}
+		}
+
+		/** FixedUpdate
+		*/
+		private void FixedUpdate()
+		{
+			if(this.mouse_fixedupdate.left.down == true){
+				UnityEngine.Debug.Log("FixedUpdate.Left.Down");
+			}
+		}
+	}
+}
+

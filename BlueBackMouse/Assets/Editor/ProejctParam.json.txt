@@ -31,6 +31,11 @@
                 "use":"use",
                 "package_fullname":"BlueBack.UnityPlayerLoop",
                 "url":"https://github.com/bluebackblue/UpmUnityPlayerLoop"
+            },
+            {
+                "use":"use",
+                "package_fullname":"Unity.InputSystem",
+                "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html"
             }
         ]
     },
