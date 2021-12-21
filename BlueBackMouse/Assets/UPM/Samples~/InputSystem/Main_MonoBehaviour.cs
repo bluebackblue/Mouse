@@ -24,11 +24,21 @@ namespace Samples.Mouse.InputSystem
 		{
 			//Update用。
 			#if(ENABLE_INPUT_SYSTEM)
-			this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault(),new BlueBack.Mouse.UIS.Engine(new BlueBack.Mouse.UIS.InitParam()));
+			{
+				BlueBack.Mouse.UIS.InitParam t_initparam = BlueBack.Mouse.UIS.InitParam.CreateDefault();
+				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIS.Engine(t_initparam);
+				this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+			}
 			#endif
 
 			//FixedUpdate用。
-			this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault(),new BlueBack.Mouse.UIM.Engine());
+			#if(ENABLE_INPUT_SYSTEM)
+			{
+				BlueBack.Mouse.UIS.InitParam t_initparam = BlueBack.Mouse.UIS.InitParam.CreateDefault();
+				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIS.Engine(t_initparam);
+				this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+			}
+			#endif
 		}
 
 		/** Update

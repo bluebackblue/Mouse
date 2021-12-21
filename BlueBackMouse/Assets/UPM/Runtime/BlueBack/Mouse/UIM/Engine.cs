@@ -15,6 +15,17 @@ namespace BlueBack.Mouse.UIM
 	*/
 	public sealed class Engine : Engine_Base
 	{
+		/** param
+		*/
+		public InitParam param;
+
+		/** constructor
+		*/
+		public Engine(in InitParam a_param)
+		{
+			this.param = a_param;
+		}
+
 		/** [BlueBack.Mouse.Engine_Base]作成。
 		*/
 		public void Create()
@@ -38,21 +49,21 @@ namespace BlueBack.Mouse.UIM
 		*/
 		public bool GetLeftButton()
 		{
-			return UnityEngine.Input.GetMouseButton(0);
+			return UnityEngine.Input.GetMouseButton(this.param.button_l);
 		}
 
 		/** [BlueBack.Mouse.Engine_Base]GetRightButton
 		*/
 		public bool GetRightButton()
 		{
-			return UnityEngine.Input.GetMouseButton(1);
+			return UnityEngine.Input.GetMouseButton(this.param.button_r);
 		}
 
 		/** [BlueBack.Mouse.Engine_Base]GetCenterButton
 		*/
 		public bool GetCenterButton()
 		{
-			return UnityEngine.Input.GetMouseButton(2);
+			return UnityEngine.Input.GetMouseButton(this.param.button_c);
 		}
 
 		/** [BlueBack.Mouse.Engine_Base]GetWheelDelta

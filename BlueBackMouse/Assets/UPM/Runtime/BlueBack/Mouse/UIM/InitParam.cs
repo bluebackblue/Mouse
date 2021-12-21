@@ -7,28 +7,30 @@
 */
 
 
-/** BlueBack.Mouse.UIS
+/** BlueBack.Mouse.UIM
 */
-namespace BlueBack.Mouse.UIS
+namespace BlueBack.Mouse.UIM
 {
 	/** Param
 	*/
-	#if(ENABLE_INPUT_SYSTEM)
 	public struct InitParam
 	{
-		/** device
+		/** button
 		*/
-		public UnityEngine.InputSystem.Mouse device;
+		public int button_l;
+		public int button_r;
+		public int button_c;
 
 		/** CreateDefault
 		*/
 		public static InitParam CreateDefault()
 		{
 			return new InitParam(){
-				device = UnityEngine.InputSystem.Mouse.current,
+				button_l = 0,
+				button_r = 1,
+				button_c = 2,
 			};
 		}
 	}
-	#endif
 }
 

@@ -15,11 +15,11 @@ MIT License
 * https://github.com/bluebackblue/UpmMouse
 
 ## 動作確認
-Unity 2021.2.0b9
+Unity 2022.1.0b2
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.18
+* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.19
 ### 開発
 * https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM
 
