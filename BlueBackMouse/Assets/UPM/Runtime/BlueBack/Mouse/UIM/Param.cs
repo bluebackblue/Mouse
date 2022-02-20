@@ -11,26 +11,15 @@
 */
 namespace BlueBack.Mouse.UIM
 {
-	/** InitParam
+	/** Param
 	*/
-	public struct InitParam
+	public struct Param
 	{
 		/** button
 		*/
 		public int button_l;
 		public int button_r;
 		public int button_c;
-
-		/** CreateDefault
-		*/
-		public static InitParam CreateDefault()
-		{
-			return new InitParam(){
-				button_l = 0,
-				button_r = 1,
-				button_c = 2,
-			};
-		}
 	}
 }
 

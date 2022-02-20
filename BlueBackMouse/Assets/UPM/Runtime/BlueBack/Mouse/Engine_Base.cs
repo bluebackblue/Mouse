@@ -23,6 +23,10 @@ namespace BlueBack.Mouse
 		*/
 		void Delete();
 
+		/** [BlueBack.Mouse.Engine_Base]更新。
+		*/
+		void PreUpdate();
+
 		/** [BlueBack.Mouse.Engine_Base]GetCursorPos
 		*/
 		UnityEngine.Vector2 GetCursorPos();

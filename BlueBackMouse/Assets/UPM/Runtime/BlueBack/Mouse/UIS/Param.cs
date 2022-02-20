@@ -11,23 +11,18 @@
 */
 namespace BlueBack.Mouse.UIS
 {
-	/** InitParam
+	/** Param
 	*/
 	#if(ENABLE_INPUT_SYSTEM)
-	public struct InitParam
+	public struct Param
 	{
 		/** device
 		*/
 		public UnityEngine.InputSystem.Mouse device;
 
-		/** CreateDefault
+		/** enable
 		*/
-		public static InitParam CreateDefault()
-		{
-			return new InitParam(){
-				device = UnityEngine.InputSystem.Mouse.current,
-			};
-		}
+		public bool enable;
 	}
 	#endif
 }

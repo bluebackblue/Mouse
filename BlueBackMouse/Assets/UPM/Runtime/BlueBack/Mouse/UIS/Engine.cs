@@ -18,13 +18,14 @@ namespace BlueBack.Mouse.UIS
 	{
 		/** param
 		*/
-		public InitParam param;
+		public Param param;
 
 		/** constructor
 		*/
-		public Engine(in InitParam a_param)
+		public Engine(in InitParam a_initparam)
 		{
-			this.param = a_param;
+			this.param.device = a_initparam.device;
+			this.param.enable = false;
 		}
 
 		/** [BlueBack.Mouse.Engine_Base]作成。
@@ -39,11 +40,26 @@ namespace BlueBack.Mouse.UIS
 		{
 		}
 
+		/** [BlueBack.Mouse.Engine_Base]更新。
+		*/
+		public void PreUpdate()
+		{
+			if(this.param.device != null){
+				if(this.param.device.added == true){
+					this.param.enable = true;
+				}else{
+					this.param.enable = false;
+				}
+			}else{
+				this.param.enable = false;
+			}
+		}
+
 		/** [BlueBack.Mouse.Engine_Base]GetCursorPos
 		*/
 		public UnityEngine.Vector2 GetCursorPos()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.position.ReadValue();
 			}
 			return new UnityEngine.Vector2(0.0f,0.0f);
@@ -53,7 +69,7 @@ namespace BlueBack.Mouse.UIS
 		*/
 		public bool GetLeftButton()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.leftButton.isPressed;
 			}
 			return false;
@@ -63,7 +79,7 @@ namespace BlueBack.Mouse.UIS
 		*/
 		public bool GetRightButton()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.rightButton.isPressed;
 			}
 			return false;
@@ -73,7 +89,7 @@ namespace BlueBack.Mouse.UIS
 		*/
 		public bool GetCenterButton()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.middleButton.isPressed;
 			}
 			return false;
@@ -83,7 +99,7 @@ namespace BlueBack.Mouse.UIS
 		*/
 		public UnityEngine.Vector2 GetWheelDelta()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.scroll.ReadValue();
 			}
 			return new UnityEngine.Vector2(0.0f,0.0f);

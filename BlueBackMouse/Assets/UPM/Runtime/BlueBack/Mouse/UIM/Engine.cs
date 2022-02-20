@@ -17,13 +17,15 @@ namespace BlueBack.Mouse.UIM
 	{
 		/** param
 		*/
-		public InitParam param;
+		public Param param;
 
 		/** constructor
 		*/
-		public Engine(in InitParam a_param)
+		public Engine(in InitParam a_initparam)
 		{
-			this.param = a_param;
+			this.param.button_l = a_initparam.button_l;
+			this.param.button_r = a_initparam.button_r;
+			this.param.button_c = a_initparam.button_c;
 		}
 
 		/** [BlueBack.Mouse.Engine_Base]作成。
@@ -35,6 +37,12 @@ namespace BlueBack.Mouse.UIM
 		/** [BlueBack.Mouse.Engine_Base]削除。
 		*/
 		public void Delete()
+		{
+		}
+
+		/** [BlueBack.Mouse.Engine_Base]更新。
+		*/
+		public void PreUpdate()
 		{
 		}
 

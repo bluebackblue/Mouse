@@ -120,6 +120,9 @@ namespace BlueBack.Mouse
 		*/
 		private void DeviceUpdate()
 		{
+			//PreUpdate
+			this.engine.PreUpdate();
+
 			//cursor
 			this.cursor.pos = this.engine.GetCursorPos();
 
