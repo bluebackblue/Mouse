@@ -1,9 +1,9 @@
 
 
 /**
- * Copyright (c) blueback
- * Released under the MIT License
- * @brief マウス。
+	Copyright (c) blueback
+	Released under the MIT License
+	@brief マウス。
 */
 
 
