@@ -28,12 +28,12 @@
         ],
         "reference_list":[
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"BlueBack.UnityPlayerLoop",
                 "url":"https://github.com/bluebackblue/UpmUnityPlayerLoop"
             },
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"Unity.InputSystem",
                 "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html"
             }
@@ -44,7 +44,7 @@
         ],
         "reference_list":[
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"BlueBack.Mouse",
                 "url":"https://github.com/bluebackblue/UpmMouse"
             }
@@ -55,7 +55,7 @@
         ],
         "reference_list":[
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"BlueBack.Mouse",
                 "url":"https://github.com/bluebackblue/UpmMouse"
             }

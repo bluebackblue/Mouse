@@ -5,9 +5,9 @@
 #define MOUSE_MANUAL
 
 
-/** Samples.Mouse.Manual
+/** BlueBack.Mouse.Samples.Manual
 */
-namespace Samples.Mouse.Manual
+namespace BlueBack.Mouse.Samples.Manual
 {
 	/** Main_MonoBehaviour
 	*/

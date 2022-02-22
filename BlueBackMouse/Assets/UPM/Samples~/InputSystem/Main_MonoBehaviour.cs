@@ -1,8 +1,8 @@
 
 
-/** Samples.Mouse.InputSystem
+/** BlueBack.Mouse.Samples.InputSystem
 */
-namespace Samples.Mouse.InputSystem
+namespace BlueBack.Mouse.Samples.InputSystem
 {
 	/** Main_MonoBehaviour
 	*/
