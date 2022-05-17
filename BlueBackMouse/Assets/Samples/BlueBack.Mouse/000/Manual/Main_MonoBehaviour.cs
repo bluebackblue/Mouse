@@ -7,6 +7,7 @@
 
 /** BlueBack.Mouse.Samples.Manual
 */
+#if(!DEF_BLUEBACK_MOUSE_SAMPLES_DISABLE)
 namespace BlueBack.Mouse.Samples.Manual
 {
 	/** Main_MonoBehaviour
@@ -176,4 +177,5 @@ namespace BlueBack.Mouse.Samples.Manual
 		}
 	}
 }
+#endif
 

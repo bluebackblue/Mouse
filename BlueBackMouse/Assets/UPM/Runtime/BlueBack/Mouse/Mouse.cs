@@ -7,6 +7,13 @@
 */
 
 
+/** define
+*/
+#if((ASMDEF_BLUEBACK_UNITYPLAYERLOOP)||(USERDEF_BLUEBACK_UNITYPLAYERLOOP))
+#define ASMDEF_TRUE
+#endif
+
+
 /** BlueBack.Mouse
 */
 namespace BlueBack.Mouse
@@ -42,6 +49,7 @@ namespace BlueBack.Mouse
 		/** constructor
 		*/
 		public Mouse(Mode a_mode,in InitParam a_initparam,Engine_Base a_engine)
+		#if(ASMDEF_TRUE)
 		{
 			//PlayerLoopSystem
 			{
@@ -85,10 +93,16 @@ namespace BlueBack.Mouse
 				this.center.Init(in a_initparam);
 			}
 		}
+		#else
+		{
+			#warning "ASMDEF_TRUE"
+		}
+		#endif
 
 		/** [IDisposable]Dispose。
 		*/
 		public void Dispose()
+		#if(ASMDEF_TRUE)
 		{
 			//engine
 			this.engine.Delete();
@@ -99,6 +113,11 @@ namespace BlueBack.Mouse
 			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Device));
 			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
 		}
+		#else
+		{
+			#warning "ASMDEF_TRUE"
+		}
+		#endif
 
 		/** Reset
 		*/

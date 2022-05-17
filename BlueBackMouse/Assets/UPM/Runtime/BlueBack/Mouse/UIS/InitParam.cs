@@ -7,13 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_INPUTSYSTEM)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Mouse.UIS
 */
+#if(ASMDEF_TRUE)
 namespace BlueBack.Mouse.UIS
 {
 	/** InitParam
 	*/
-	#if(ENABLE_INPUT_SYSTEM)
 	public struct InitParam
 	{
 		/** device
@@ -29,6 +38,6 @@ namespace BlueBack.Mouse.UIS
 			};
 		}
 	}
-	#endif
 }
+#endif
 

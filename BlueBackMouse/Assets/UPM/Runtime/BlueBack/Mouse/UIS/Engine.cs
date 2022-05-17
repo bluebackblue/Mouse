@@ -7,13 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_INPUTSYSTEM)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Mouse.UIS
 */
+#if(ASMDEF_TRUE)
 namespace BlueBack.Mouse.UIS
 {
 	/** Engine
 	*/
-	#if(ENABLE_INPUT_SYSTEM)
 	public sealed class Engine : Engine_Base
 	{
 		/** param
@@ -105,6 +114,6 @@ namespace BlueBack.Mouse.UIS
 			return new UnityEngine.Vector2(0.0f,0.0f);
 		}
 	}
-	#endif
 }
+#endif
 
