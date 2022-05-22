@@ -39,7 +39,7 @@ namespace BlueBack.Mouse.Samples.Manual
 		private int value_update;
 		private UnityEngine.Vector2 value_wheel_update;
 		#endif
-		
+
 		#if(MOUSE_FIXEDUPDATE)
 		private UnityEngine.UI.Text text_fixedupdate;
 		private int value_fixedupdate;
