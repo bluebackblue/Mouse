@@ -12,7 +12,7 @@ namespace BlueBack.Mouse.Samples.Manual
 {
 	/** Main_MonoBehaviour
 	*/
-	public class Main_MonoBehaviour : UnityEngine.MonoBehaviour
+	public sealed class Main_MonoBehaviour : UnityEngine.MonoBehaviour
 	{
 		/** mouse_update
 		*/

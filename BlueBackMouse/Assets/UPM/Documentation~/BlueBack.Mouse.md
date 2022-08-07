@@ -21,7 +21,7 @@ Unity 2022.1.0b16
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.22
+* https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM#0.0.23
 ### 開発
 * https://github.com/bluebackblue/UpmMouse.git?path=BlueBackMouse/Assets/UPM
 

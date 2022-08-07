@@ -7,7 +7,7 @@ namespace BlueBack.Mouse.Samples.InputManager
 {
 	/** Main_MonoBehaviour
 	*/
-	public class Main_MonoBehaviour : UnityEngine.MonoBehaviour
+	public sealed class Main_MonoBehaviour : UnityEngine.MonoBehaviour
 	{
 		/** Update用。
 		*/
