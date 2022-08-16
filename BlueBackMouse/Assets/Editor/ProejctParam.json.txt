@@ -24,7 +24,9 @@
 	"root_readmemd_path":"../../README.md",
 	"need_unity_version":"2020.1",
 	"asmdef_runtime":{
-		"define_list":[
+		"define_constraint_list":[
+		],
+		"version_define_list":[
 		],
 		"reference_list":[
 			{
@@ -38,11 +40,19 @@
 				"package_fullname":"Unity.InputSystem",
 				"url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html",
 				"define_package_pathname":"com.unity.inputsystem"
+			},
+			{
+				"mode":"package",
+				"package_fullname":"BlueBack.Debug",
+				"url":"https://github.com/bluebackblue/UpmDebug",
+				"define_package_pathname":"blueback.debug"
 			}
 		]
 	},
 	"asmdef_editor":{
-		"define_list":[
+		"define_constraint_list":[
+		],
+		"version_define_list":[
 		],
 		"reference_list":[
 			{
@@ -54,7 +64,9 @@
 		]
 	},
 	"asmdef_sample":{
-		"define_list":[
+		"define_constraint_list":[
+		],
+		"version_define_list":[
 		],
 		"reference_list":[
 			{
