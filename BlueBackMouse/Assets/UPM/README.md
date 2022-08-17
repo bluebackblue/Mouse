@@ -10,7 +10,7 @@ MIT License
 ## 依存 / 使用ライセンス等
 ### ランタイム
 * https://github.com/bluebackblue/UpmUnityPlayerLoop
-* https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html
+* https://docs.unity3d.com/Packages/com.unity.inputsystem@latest/index.html
 * https://github.com/bluebackblue/UpmDebug
 ### エディター
 * https://github.com/bluebackblue/UpmMouse
