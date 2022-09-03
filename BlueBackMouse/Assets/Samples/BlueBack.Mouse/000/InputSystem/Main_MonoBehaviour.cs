@@ -48,7 +48,7 @@ namespace BlueBack.Mouse.Samples.InputSystem
 		private void Update()
 		{
 			if(this.mouse.left.down == true){
-				UnityEngine.Debug.Log("Update.Left.Down");
+				UnityEngine.Debug.Log(string.Format("Update.Left.Down : x = {0} : y = {1}",this.mouse.cursor.pos.x,this.mouse.cursor.pos.y));
 			}
 		}
 		#endif
@@ -58,7 +58,7 @@ namespace BlueBack.Mouse.Samples.InputSystem
 		private void FixedUpdate()
 		{
 			if(this.mouse_fixedupdate.left.down == true){
-				UnityEngine.Debug.Log("FixedUpdate.Left.Down");
+				UnityEngine.Debug.Log(string.Format("FixedUpdate.Left.Down : x = {0} : y = {1}",this.mouse.cursor.pos.x,this.mouse.cursor.pos.y));
 			}
 		}
 	}

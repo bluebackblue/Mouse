@@ -69,7 +69,8 @@ namespace BlueBack.Mouse.UIS
 		public UnityEngine.Vector2 GetCursorPos()
 		{
 			if(this.param.enable == true){
-				return this.param.device.position.ReadValue();
+				UnityEngine.Vector2 t_raw = this.param.device.position.ReadValue();
+				return new UnityEngine.Vector2(t_raw.x / UnityEngine.Screen.width,1.0f - t_raw.y / UnityEngine.Screen.height);
 			}
 			return new UnityEngine.Vector2(0.0f,0.0f);
 		}
