@@ -50,7 +50,7 @@ namespace BlueBack.Mouse
 
 		/** constructor
 		*/
-		public Mouse(Mode a_mode,in InitParam a_initparam,Engine_Base a_engine)
+		public Mouse(in InitParam a_initparam)
 		#if(ASMDEF_TRUE)
 		{
 			//PlayerLoopSystem
@@ -58,16 +58,16 @@ namespace BlueBack.Mouse
 				UnityEngine.LowLevel.PlayerLoopSystem t_playerloopsystem = BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetCurrentPlayerLoop();
 
 				//StatusUpdate
-				switch(a_mode){
-				case Mode.FixedUpdate:
+				switch(a_initparam.updatemode){
+				case UpdateMode.UnityFixedUpdate:
 					{
-						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.FixedUpdate),typeof(PlayerLoopType.Status),this.StatusUpdate);
+						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.FixedUpdate),typeof(PlayerLoopType.Status),this.ManualUpdate);
 					}break;
-				case Mode.Update:
+				case UpdateMode.UnityUpdate:
 					{
-						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Status),this.StatusUpdate);
+						BlueBack.UnityPlayerLoop.Add.AddFromType(ref t_playerloopsystem,UnityPlayerLoop.Mode.AddFirst,typeof(UnityEngine.PlayerLoop.Update),typeof(PlayerLoopType.Status),this.ManualUpdate);
 					}break;
-				case Mode.Manual:
+				case UpdateMode.ManualUpdate:
 					{
 					}break;
 				}
@@ -83,7 +83,7 @@ namespace BlueBack.Mouse
 			}
 
 			//engine
-			this.engine = a_engine;
+			this.engine = a_initparam.engine;
 			this.engine.Create();
 
 			//Init
@@ -94,10 +94,6 @@ namespace BlueBack.Mouse
 				this.right.Init(in a_initparam);
 				this.center.Init(in a_initparam);
 			}
-		}
-		#else
-		{
-			#warning "ASMDEF_TRUE"
 		}
 		#endif
 
@@ -114,10 +110,6 @@ namespace BlueBack.Mouse
 			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Status));
 			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Device));
 			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
-		}
-		#else
-		{
-			#warning "ASMDEF_TRUE"
 		}
 		#endif
 
@@ -161,9 +153,9 @@ namespace BlueBack.Mouse
 			this.center.device_accumulation |= this.center.device;
 		}
 
-		/** StatusUpdate
+		/** ManualUpdate
 		*/
-		public void StatusUpdate()
+		public void ManualUpdate()
 		{
 			//button
 			this.left.Update();

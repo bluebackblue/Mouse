@@ -9,11 +9,11 @@ namespace BlueBack.Mouse.Samples.InputSystem
 	*/
 	public sealed class Main_MonoBehaviour : UnityEngine.MonoBehaviour
 	{
+		#if(ENABLE_INPUT_SYSTEM)
+
 		/** Update用。
 		*/
-		#if(ENABLE_INPUT_SYSTEM)
 		private BlueBack.Mouse.Mouse mouse;
-		#endif
 
 		/** FixedUpdate用。
 		*/
@@ -23,35 +23,38 @@ namespace BlueBack.Mouse.Samples.InputSystem
 		*/
 		private void Start()
 		{
+			//initparam_uis
+			BlueBack.Mouse.UIS.InitParam t_initparam_uis = BlueBack.Mouse.UIS.InitParam.CreateDefault();
+
 			//Update用。
-			#if(ENABLE_INPUT_SYSTEM)
 			{
-				BlueBack.Mouse.UIS.InitParam t_initparam = BlueBack.Mouse.UIS.InitParam.CreateDefault();
-				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIS.Engine(t_initparam);
-				this.mouse = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+				BlueBack.Mouse.InitParam t_initparam = BlueBack.Mouse.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityUpdate;
+					t_initparam.engine = new BlueBack.Mouse.UIS.Engine(t_initparam_uis);
+				}
+				this.mouse = new BlueBack.Mouse.Mouse(in t_initparam);
 			}
-			#endif
 
 			//FixedUpdate用。
-			#if(ENABLE_INPUT_SYSTEM)
 			{
-				BlueBack.Mouse.UIS.InitParam t_initparam = BlueBack.Mouse.UIS.InitParam.CreateDefault();
-				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIS.Engine(t_initparam);
-				this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+				BlueBack.Mouse.InitParam t_initparam = BlueBack.Mouse.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityFixedUpdate;
+					t_initparam.engine = new BlueBack.Mouse.UIS.Engine(t_initparam_uis);
+				}
+				this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(in t_initparam);
 			}
-			#endif
 		}
 
 		/** Update
 		*/
-		#if(ENABLE_INPUT_SYSTEM)
 		private void Update()
 		{
 			if(this.mouse.left.down == true){
 				UnityEngine.Debug.Log(string.Format("Update.Left.Down : x = {0} : y = {1}",this.mouse.cursor.pos.x,this.mouse.cursor.pos.y));
 			}
 		}
-		#endif
 
 		/** FixedUpdate
 		*/
@@ -61,6 +64,8 @@ namespace BlueBack.Mouse.Samples.InputSystem
 				UnityEngine.Debug.Log(string.Format("FixedUpdate.Left.Down : x = {0} : y = {1}",this.mouse.cursor.pos.x,this.mouse.cursor.pos.y));
 			}
 		}
+
+		#endif
 	}
 }
 #endif

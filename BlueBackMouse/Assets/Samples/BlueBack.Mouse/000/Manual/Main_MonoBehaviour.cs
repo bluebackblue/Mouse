@@ -58,24 +58,32 @@ namespace BlueBack.Mouse.Samples.Manual
 		*/
 		private void Start()
 		{
-			//mouse_update
+			BlueBack.Mouse.UIM.InitParam t_initparam_uim = BlueBack.Mouse.UIM.InitParam.CreateDefault();
+
+			//Update用。
 			#if(MOUSE_UPDATE)
 			{
-				BlueBack.Mouse.UIM.InitParam t_initparam = BlueBack.Mouse.UIM.InitParam.CreateDefault();
-				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIM.Engine(t_initparam);
-				this.mouse_update = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Update,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+				BlueBack.Mouse.InitParam t_initparam = BlueBack.Mouse.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityUpdate;
+					t_initparam.engine = new BlueBack.Mouse.UIM.Engine(t_initparam_uim);
+				}
+				this.mouse_update = new BlueBack.Mouse.Mouse(in t_initparam);
 				this.text_update = UnityEngine.GameObject.Find("Text_Update").GetComponent<UnityEngine.UI.Text>();
 				this.value_update = 0;
 				this.value_wheel_update = new UnityEngine.Vector2(0.0f,0.0f);
 			}
 			#endif
 
-			//mouse_fixedupdate
+			//FixedUpdate用。
 			#if(MOUSE_FIXEDUPDATE)
 			{
-				BlueBack.Mouse.UIM.InitParam t_initparam = BlueBack.Mouse.UIM.InitParam.CreateDefault();
-				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIM.Engine(t_initparam);
-				this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.FixedUpdate,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+				BlueBack.Mouse.InitParam t_initparam = BlueBack.Mouse.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityFixedUpdate;
+					t_initparam.engine = new BlueBack.Mouse.UIM.Engine(t_initparam_uim);
+				}
+				this.mouse_fixedupdate = new BlueBack.Mouse.Mouse(in t_initparam);
 				this.text_fixedupdate = UnityEngine.GameObject.Find("Text_FixedUpdate").GetComponent<UnityEngine.UI.Text>();
 				this.value_fixedupdate = 0;
 				this.value_wheel_fixedupdate = new UnityEngine.Vector2(0.0f,0.0f);
@@ -85,9 +93,12 @@ namespace BlueBack.Mouse.Samples.Manual
 			//マニュアル呼び出し。
 			#if(MOUSE_MANUAL)
 			{
-				BlueBack.Mouse.UIM.InitParam t_initparam = BlueBack.Mouse.UIM.InitParam.CreateDefault();
-				BlueBack.Mouse.Engine_Base t_engine = new BlueBack.Mouse.UIM.Engine(t_initparam);
-				this.mouse_manual = new BlueBack.Mouse.Mouse(BlueBack.Mouse.Mode.Manual,BlueBack.Mouse.InitParam.CreateDefault(),t_engine);
+				BlueBack.Mouse.InitParam t_initparam = BlueBack.Mouse.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.ManualUpdate;
+					t_initparam.engine = new BlueBack.Mouse.UIM.Engine(t_initparam_uim);
+				}
+				this.mouse_manual = new BlueBack.Mouse.Mouse(in t_initparam);
 				this.text_manual = UnityEngine.GameObject.Find("Text_Manual").GetComponent<UnityEngine.UI.Text>();
 				this.value_manual = 0;
 				this.value_wheel_manual = new UnityEngine.Vector2(0.0f,0.0f);
@@ -149,7 +160,7 @@ namespace BlueBack.Mouse.Samples.Manual
 			#if(MOUSE_MANUAL)
 
 			//マニュアル呼び出し。
-			this.mouse_manual.StatusUpdate();
+			this.mouse_manual.ManualUpdate();
 
 			if(this.mouse_manual.left.rapid == true){
 				this.value_manual++;

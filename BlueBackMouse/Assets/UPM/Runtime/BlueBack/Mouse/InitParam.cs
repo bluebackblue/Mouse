@@ -23,6 +23,14 @@ namespace BlueBack.Mouse
 		*/
 		public float rapid_time_max;
 
+		/** 更新モード。
+		*/
+		public UpdateMode updatemode;
+
+		/** エンジン。
+		*/
+		public Engine_Base engine;
+
 		/** CreateDefault
 		*/
 		public static InitParam CreateDefault()
@@ -30,6 +38,8 @@ namespace BlueBack.Mouse
 			return new InitParam(){
 				rapid_time_max_first = 0.5f,
 				rapid_time_max = 0.1f,
+				updatemode = UpdateMode.UnityFixedUpdate,
+				engine = null,
 			};
 		}
 	}
