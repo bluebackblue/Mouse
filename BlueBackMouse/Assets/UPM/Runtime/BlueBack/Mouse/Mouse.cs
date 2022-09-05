@@ -79,7 +79,7 @@ namespace BlueBack.Mouse
 				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
 
 				//SetDefaultPlayerLoopOnUnityDestroy
-				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetDefaultPlayerLoopOnUnityDestroy();
+				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetDefaultPlayerLoopOnUnityDestroy(null);
 			}
 
 			//engine
